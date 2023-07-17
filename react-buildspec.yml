@@ -3,7 +3,7 @@ version: 0.1
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: latest
     commands:
       - ls -la
       - echo installing "node modules"
