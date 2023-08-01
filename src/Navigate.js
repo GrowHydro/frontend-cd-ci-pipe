@@ -14,7 +14,6 @@ const Navigate = () =>{
                 <Link to="/hydro">Hydro</Link>
                 <Link to="/kits">Kits</Link>
                 <Link to="/sci">Science</Link>
-                <Link to="/user">Users</Link>
                 <Link to="/contact">Contact</Link>
                 <Link to="/buy">Buy</Link>
             </nav>
