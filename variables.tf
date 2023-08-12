@@ -39,3 +39,7 @@ variable "region" {
   description = "Region to deploy infrastructure."
   default     = "us-east-1"
 }
+
+variable "image_repo_url" {
+  default = "373157733381.dkr.ecr.us-east-1.amazonaws.com/<repository>"
+}

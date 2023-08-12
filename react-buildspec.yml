@@ -11,6 +11,11 @@ phases:
 
   pre_build:
     commands:
+      - echo Logging into Amazon ECR ...
+      - cat $AWS_DEFAULT_REGION
+      - cat $IMAGE_REPO_NAME
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_DEFAULT_REGION.amazonaws.com
+      - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME
       - echo installing source npm dependencies ...
       - npm run build
       - ls -la
