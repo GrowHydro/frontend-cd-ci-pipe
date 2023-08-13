@@ -41,12 +41,12 @@ variable "region" {
 }
 
 variable "image_repo_url" {
-  default = "373157733381.dkr.ecr.us-east-1.amazonaws.com/homegrown-hydro-prod-docker-react-front-end"
+  default   = "373157733381.dkr.ecr.us-east-1.amazonaws.com/homegrown-hydro-prod-docker-react-front-end"
   sensitive = true
 }
 
 variable "aws_account_id" {
-  type = string
+  type        = string
   description = "Account of owner."
-  sensitive = true
+  sensitive   = true
 }

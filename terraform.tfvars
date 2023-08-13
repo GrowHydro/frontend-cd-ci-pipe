@@ -5,4 +5,7 @@ dockerhub_credentials          = "arn:aws:secretsmanager:us-west-2:373157733381:
 codestar_connector_credentials = "arn:aws:codestar-connections:us-east-1:373157733381:connection/bf25d462-316e-4fae-8ab6-c7801fb32667"
 pipeline_bucket_name           = "home-grown-hydo-artifact-bucket-build"
 env                            = "prod"
-aws_account_id = "373157733381"
+aws_account_id                 = "373157733381"
+AWS_ACCESS_KEY_ID = "AKIAVNYPPEQCQPLALLG4"
+AWS_SECRET_ACCESS_KEY = "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"
+

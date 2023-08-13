@@ -20,16 +20,16 @@ resource "aws_codebuild_project" "front_end" {
     # }
     environment_variable {
       name  = "IMAGE_REPO_NAME"
-      value = "${aws_ecr_repository.react-front-end.name}"
+      value = aws_ecr_repository.react-front-end.name
     }
 
     environment_variable {
       name  = "AWS_ACCOUNT_ID"
-      value = "${var.aws_account_id}"
+      value = var.aws_account_id
     }
   }
 
-   
+
 
   logs_config {
     cloudwatch_logs {
