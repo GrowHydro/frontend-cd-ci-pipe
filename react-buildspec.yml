@@ -11,12 +11,11 @@ phases:
 
   pre_build:
     commands:
-      - echo docker login cat growhydro Grow2Mil!!
       - echo Logging into Amazon ECR ...
       - echo $AWS_DEFAULT_REGION
       - echo $IMAGE_REPO_NAME
       - echo $AWS_ACCOUNT_ID
-      - echo aws ecr get-login-password --profile=architect --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - echo aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
       - REPOSITORY_URI=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME
       - echo installing source npm dependencies ...
