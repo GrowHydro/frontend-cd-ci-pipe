@@ -11,6 +11,7 @@ phases:
 
   pre_build:
     commands:
+      - echo docker login cat growhydro Grow2Mil!!
       - echo Logging into Amazon ECR ...
       - echo $AWS_DEFAULT_REGION
       - echo $IMAGE_REPO_NAME
