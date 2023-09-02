@@ -11,7 +11,6 @@ const Navigate = () =>{
             <nav className='Nav justify-content-center align-text-bottom mx-auto p-4'> 
                 <img className="compass align-top rounded-circle not-on-sm" src={Weed} alt="navigation" />
                 <Link to="/">Home</Link>
-                <Link to="/hydro">Hydro</Link>
                 <Link to="/kits">Kits</Link>
                 <Link to="/sci">Science</Link>
                 <Link to="/contact">Contact</Link>

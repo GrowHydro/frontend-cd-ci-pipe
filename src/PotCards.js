@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import HydroKit from './pictures/HydroponicFactory.webp';
 import VerticalFarm from './pictures/vertical-farm.jpg';
 import './scss/hydroponics.scss';
@@ -9,7 +9,7 @@ import SocialLinksShare from './Components/SocialLinksShare';
 
 const cardInfo = [
     {img: VerticalFarm, class: 'farm', alt: "Grow indoors", des: 'A vertical Fram using hydroponics', info: 'Hydropoincs grow faster and give more flower', title: 'Hydro'},
-    {img: HydroKit, class: 'kit', alt: 'hydroponics setup', des: 'a plug and grow hydroponics setup', info: 'our models take the guess work and sweat out of growing pot', title: 'Kits' },
+    {img: HydroKit, class: 'kit', alt: 'hydroponics setup', des: 'A plug and grow hydroponics setup', info: 'our models take the guess work and sweat out of growing pot', title: 'Kits' },
 ]
 const PotCards = () =>{
     const navigate = useNavigate();
@@ -31,6 +31,7 @@ const PotCards = () =>{
                 <ContentReveal />
                 <RevealWhy />
                 <SocialLinksShare />
+                <Outlet />
                 </div>
                 
             </div>

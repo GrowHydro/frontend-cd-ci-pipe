@@ -23,3 +23,8 @@ output "cf_domain_name" {
   description = "Domain name corresponding to the distribution"
 }
 
+output "aws_ecr_url" {
+value = aws_ecr_repository.react-front-end.repository_url
+description = "Full URL of AWS ECR front-end image"
+}
+

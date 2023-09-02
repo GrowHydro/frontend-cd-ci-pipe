@@ -4,19 +4,23 @@ import {
   
 import '../scss/index.scss'
 import '../scss/kit.scss'
+import { KitData } from '../Data/KitsData';
 
-const Kit = ({key, img, alt, des, title, id}) =>{
+const Kit = () =>{
     
     const {kitId} = useParams();
+   
     debugger
-    return(<div key={key} className="d-flex flex-column justify-content-center mx-auto text-warning hydrokit">
-                <h2 className="mx-auto fw-bolder fst-italic">{title}</h2>
-                <p className="mx-auto fs-2 fw-bolder text-black">{des}</p> 
-                <img src={img} alt={alt} className="mx-auto rounded-circle" width={"200px"} height={"200px"}/>
-                <Link className="mx-auto" to={`/kits/${id}`}>{title}</Link>
-                <Link className="mx-auto" to="/kits">Back</Link>
-                <Outlet />
-          </div>)
+            return (
+            <>
+            <div key={KitData[kitId].key} className="d-flex flex-column justify-content-center mx-auto text-warning hydrokit">
+            <h2 className="mx-auto fw-bolder fst-italic">{KitData[kitId].title}</h2>
+            <p className="mx-auto fs-2 fw-bolder text-black">{KitData[kitId].des}</p> 
+            <img src={KitData[kitId].img} alt={KitData[kitId].alt} className="mx-auto rounded-circle" width={"200px"} height={"200px"}/>
+            <Link className="mx-auto" to={`/kits/${KitData[kitId].id}`}>{KitData[kitId].title}</Link>
+            <Link className="mx-auto" to="/kits">Back</Link>
+            </div>
+            </>)
 }
 
 export default Kit;

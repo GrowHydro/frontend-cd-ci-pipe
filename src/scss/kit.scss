@@ -1,8 +1,13 @@
 .hydrokit{
     background-image: url('../pictures/hex.jpg'), url('../pictures/calm.jpg');
     background-blend-mode: screen !important;
+    background-color: black;
     border-radius: 25px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+}
+
+.kits{
+    background-color: white;
 }

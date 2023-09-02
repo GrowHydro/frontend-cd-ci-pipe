@@ -27,6 +27,11 @@ resource "aws_codebuild_project" "front_end" {
       name  = "AWS_ACCOUNT_ID"
       value = var.aws_account_id
     }
+
+    environment_variable {
+      name  = "AWS_ECR_url"
+      value = aws_ecr_repository.react-front-end.repository_url
+    }
   }
 
 

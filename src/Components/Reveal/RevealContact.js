@@ -15,9 +15,9 @@ const ContentReveal = () => {
       <div className={`content ${revealed ? "revealed" : ""}`}>
         <h2>Contact Us</h2>
         <p><img src={Phone} atl="contact" height="60px" /> 555-555-5555</p>
-        <p>
+        <p className="d-inline-flex">
           <img src={Email} alt="email"/>{" "}
-          <a href="mailto:customers.grow.hydro@gmail.com">
+          <a class="fs-6" href="mailto:customers.grow.hydro@gmail.com">
             customers.grow.hydro@gmail.com
           </a>
         </p>
