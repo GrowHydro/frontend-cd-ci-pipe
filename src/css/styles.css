@@ -1,0 +1,18 @@
+.container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+    background-color: aliceblue !important;
+  }
+  form{
+   background-image: url('../pictures/calm.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   min-width: 400px;
+  }
+  label{
+    display: inline-block;
+    width: 150px;
+    text-align: left;
+  }

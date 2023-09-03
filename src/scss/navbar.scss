@@ -14,8 +14,9 @@ $galaxy-h: 780px;
 $galaxy-w: 360px;
 
 .Nav{
-    background-image: url($farm), url($hex); 
-    background-position: left !important;
+    // background-image: url($farm), url($hex); 
+    background-image: url($hex); 
+    background-position: top !important;
     height: 15vh !important;
     border-radius: 15%;
     background-blend-mode: lighten !important;
