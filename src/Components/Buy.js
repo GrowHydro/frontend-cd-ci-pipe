@@ -1,10 +1,10 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { CreditCard, PaymentForm } from 'react-square-web-payments-sdk';
 import BuyForm from './BuyForm'
 import styles from '../css/styles.css';
-
 import { Outlet } from "react-router-dom"
 import Header from './Header'
+
 const Buy = () =>{
   const [amount, updateAmount] = useState(0.0);
   const [address, updateAddress] = useState('');
@@ -12,10 +12,11 @@ const Buy = () =>{
   const [name, updateName] = useState('');
   const [diffAddress, addressIsSame] = useState(false);
 
-  const handleChange=(e)=>{
-      debugger
+  const HandleChange=(e)=>{
+     debugger 
      let change = e.target.value
-     let id = e.target.id
+     let id = e.target.id 
+       useEffect( (e)=>{
      debugger
      if (id === 'name'){
        updateName(change);
@@ -24,8 +25,10 @@ const Buy = () =>{
       updateAddress(change);
      }
      else if (id === 'diffAddress'){
+      debugger
       addressIsSame(!!change);
      }
+    },[change])
 
   } 
 
@@ -42,7 +45,7 @@ const Buy = () =>{
                 address={address} 
                 shipAddress={shipAddress}
                 diffAddress={diffAddress}
-                handleChange={handleChange} 
+                HandleChange={HandleChange} 
                 handleSubmit={handleSubmit} />
 
             <PaymentForm

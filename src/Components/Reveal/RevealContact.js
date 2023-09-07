@@ -17,7 +17,7 @@ const ContentReveal = () => {
         <p><img src={Phone} atl="contact" height="60px" /> 555-555-5555</p>
         <p className="d-inline-flex">
           <img src={Email} alt="email"/>{" "}
-          <a class="fs-6" href="mailto:customers.grow.hydro@gmail.com">
+          <a className="fs-6" href="mailto:customers.grow.hydro@gmail.com">
             customers.grow.hydro@gmail.com
           </a>
         </p>
