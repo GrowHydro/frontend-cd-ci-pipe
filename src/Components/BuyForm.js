@@ -1,25 +1,30 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import '../css/styles.css'
 
-const BuyForm = ({name,address, shipAddress, HandleChange, handleSubmit, diffAddress, id}) =>{
-      
+const BuyForm = ({name,address, shipAddress, HandleChange, handleSubmit, diffAddress, checked, key, isRadioSelected}) =>{
+    const ref = useRef('address');
+
     const Radio = React.memo(function Radio({
-        checked,
         diffAddress,
         HandleChange, 
-        id
+        id, 
+        checked,
+        isRadioSelected
       }) {
         console.log("rendering", diffAddress);
         
-        
+        debugger
         return (
-         
             <input
+              key={key + "address"}
+              name="address"
               type="radio"
-              value={checked}
-              checked={checked}
-              onChange={HandleChange}
+              value={diffAddress }
+              checked={ diffAddress }
+              // onChange={(e)=>HandleChange(e)}
+              onClick={(e)=> HandleChange(e)}
               id={id}
+              ref={ref}
             />
         
         );
@@ -37,12 +42,18 @@ const BuyForm = ({name,address, shipAddress, HandleChange, handleSubmit, diffAdd
                     </label>
                     <span className="d-flex flex-row mx-auto mt-2">
                     <label className="fw-bolder text-black mt-3">Is Shipping address different than billing Address?</label>
-                    <Radio className="mx-auto" id={"diffAddress"} diffAddress={diffAddress} checked={diffAddress} HandleChange={HandleChange} />
+                    <Radio key={checked + "componentAddress"} 
+                      className="mx-auto" 
+                      id={"radioAddressId"} 
+                      diffAddress={diffAddress} 
+                      checked={checked} 
+                      HandleChange={HandleChange}
+                      isRadioSelected={isRadioSelected} />
                     </span>
-                    { diffAddress &&
+                    { checked &&
                     <label className='fw-bolder text-warning mx-auto'>
                         Ship Address:
-                        <input id="shipAddress" type="text" value={`${shipAddress}`} onChange={(e)=>HandleChange(e)} />
+                        <input id="shipAddress" type="text" onChange={(e)=>HandleChange(e)} />
                     </label> 
                     }
                         <input type="submit" value="Submit" />

@@ -6,30 +6,32 @@ import { Outlet } from "react-router-dom"
 import Header from './Header'
 
 const Buy = () =>{
+  console.log("process.env.REACT_APP_LOCALID->",process.env.REACT_APP_LOCALID)
   const [amount, updateAmount] = useState(0.0);
   const [address, updateAddress] = useState('');
   const [shipAddress, updateShipAddress] = useState('');
   const [name, updateName] = useState('');
   const [diffAddress, addressIsSame] = useState(false);
+  const [dynamicId, updateId] = useState('');
+  let [dynamicChange, updateChange] = useState('');
+  const [checkedInState, updateChecked] = useState(false);
+
+
+  const isRadioSelected = () =>{
+      return checkedInState ? false : true
+  };
+
 
   const HandleChange=(e)=>{
-     debugger 
      let change = e.target.value
-     let id = e.target.id 
-       useEffect( (e)=>{
-     debugger
-     if (id === 'name'){
-       updateName(change);
+     let id = e.target.id
+     if (id = "radioAddressId"){
+      let update = isRadioSelected();
+      updateChecked(update);
+      addressIsSame(update);
      }
-     else if (id === 'address'){
-      updateAddress(change);
-     }
-     else if (id === 'diffAddress'){
-      debugger
-      addressIsSame(!!change);
-     }
-    },[change])
-
+    
+     
   } 
 
   const handleSubmit =()=>{
@@ -42,11 +44,15 @@ const Buy = () =>{
              <div className={styles.container} id='card-container'>
               <BuyForm 
                 name={name} 
-                address={address} 
+                address={address}
+                checked={checkedInState}
                 shipAddress={shipAddress}
                 diffAddress={diffAddress}
                 HandleChange={HandleChange} 
-                handleSubmit={handleSubmit} />
+                handleSubmit={handleSubmit}
+                isRadioSelected={isRadioSelected}
+                key="BuyForm" 
+                />
 
             <PaymentForm
               applicationId="sandbox-sq0idb-cF1vDO6CFrkF71S4OZIrgg"
