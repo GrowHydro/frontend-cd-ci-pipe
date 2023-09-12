@@ -9,7 +9,7 @@
    background-image: url('../pictures/calm.jpg');
    background-repeat: no-repeat;
    background-size: cover;
-   min-width: 400px;
+   min-width: 500px;
   }
   label{
     display: inline-block;
