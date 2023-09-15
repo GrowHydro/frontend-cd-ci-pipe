@@ -27,7 +27,7 @@ const Kits =()=>{
     return(<div className="d-flex flex-column justify-content-center mx-auto kits">
             <h1 className="mx-auto text-success">Grow Kits</h1>
             <p className="mx-auto fw-bolder fs-3 text-danger">Become your own Dispensary</p>
-            <p className="mx-auto fw-bolder fs-4 text-warning">Grow all the marijuana you want</p>
+            <p className="mx-auto fw-bolder fs-4 text-warning">Grow all the Cannabis you want</p>
             {makeKitCards()}
 
             <Outlet />
