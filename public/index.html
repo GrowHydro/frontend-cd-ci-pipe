@@ -33,102 +33,17 @@
     src="https://sandbox.web.squarecdn.com/v1/square.js"
     ></script>
     <script>
+      const ageCheck = document.getElementById("ageCheck");
+      const contentDiv = document.getElementById("content");
     
-      const appId = 'sandbox-sq0idb-cF1vDO6CFrkF71S4OZIrgg';
-      const locationId = 'LQXA6DKWDYTD9';
-      
-      async function initializeCard(payments) {
-        const card = await payments.card();
-        await card.attach('#card-container');
-        return card;
-      }
-      
-      document.addEventListener('DOMContentLoaded', async function () {
-        if (!window.Square) {
-          throw new Error('Square.js failed to load properly');
+      ageCheck.addEventListener("change", function() {
+        if (ageCheck.checked) {
+          contentDiv.style.display = "block";
+          ageCheckLabel.style.display = "none";
+          document.getElementById('legal').remove();
         }
-        const payments = window.Square.payments(appId, locationId);
-        let card;
-        try {
-          card = await initializeCard(payments);
-        } catch (e) {
-          console.error('Initializing Card failed', e);
-          return;
-        }
-        
-
-
-        // Step 5.2: create card payment
-
-        async function createPayment(token, verificationToken) {
-        const body = JSON.stringify({
-          locationId,
-          sourceId: token,
-          verificationToken,
-          idempotencyKey: window.crypto.randomUUID(),
-        });
-
-        const paymentResponse = await fetch('/payment', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body,
-        });
-
-        if (paymentResponse.ok) {
-          return paymentResponse.json();
-        }
-
-        const errorBody = await paymentResponse.text();
-        throw new Error(errorBody);
-      }
-
-      async function tokenize(paymentMethod) {
-        const tokenResult = await paymentMethod.tokenize();
-        if (tokenResult.status === 'OK') {
-          return tokenResult.token;
-        } else {
-          let errorMessage = `Tokenization failed with status: ${tokenResult.status}`;
-          if (tokenResult.errors) {
-            errorMessage += ` and errors: ${JSON.stringify(
-              tokenResult.errors
-            )}`;
-          }
-
-          throw new Error(errorMessage);
-        }
-      }
-
       });
-
- // Required in SCA Mandated Regions: Learn more at https://developer.squareup.com/docs/sca-overview
- async function verifyBuyer(payments, token) {
-        const verificationDetails = {
-          amount: '1.00',
-          billingContact: {
-            addressLines: ['123 Main Street', 'Apartment 1'],
-            familyName: 'Doe',
-            givenName: 'John',
-            email: 'jondoe@gmail.com',
-            country: 'GB',
-            phone: '3214563987',
-            region: 'LND',
-            city: 'London',
-          },
-          currencyCode: 'GBP',
-          intent: 'CHARGE',
-        };
-
-        const verificationResults = await payments.verifyBuyer(
-          token,
-          verificationDetails
-        );
-        return verificationResults.token;
-      }
-
-
-      </script>
+    </script>
     <title>HomeGrown Hydro - The Ultimate Hydroponics Kit for Growing Marijuana at Home</title>
   </head>
   <body>
