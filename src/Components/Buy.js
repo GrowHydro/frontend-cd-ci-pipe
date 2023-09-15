@@ -11,7 +11,7 @@ const Buy = ({checked, handleChange}) =>{
 
                   <div id="ageForm">
                     <div id="legal" class="d-flex flex-column justify-content-center fw-bolder">
-                    <h1>Hydroponic System Disclaimer</h1>
+                    <h1>Terms of Purchase</h1>
                     <p>This hydroponic system is designed to grow plants and vegetables in a controlled indoor environment. It provides a method for cultivating various types of vegetation using a water-based nutrient solution.</p>
                     <p>It's important to note that the success of your crops may depend on various factors including proper maintenance, suitable environmental conditions, and appropriate plant selection.</p>
                     <p>By purchasing and using this hydroponic system, you acknowledge and agree:</p>
