@@ -27,7 +27,7 @@ const BuyForm
       }) {
         console.log("rendering", diffAddress);
         
-        debugger
+        
         return (
             <input
               key={key + "address"}

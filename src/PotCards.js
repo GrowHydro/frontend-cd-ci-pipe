@@ -15,7 +15,7 @@ const PotCards = () =>{
     const navigate = useNavigate();
 
     const followLink=(link)=>{
-        debugger;
+        ;
         navigate("/"+link);
     }
 

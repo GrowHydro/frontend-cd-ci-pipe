@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import './scss/greenroom.scss'
 import Navigate from './Navigate.js'
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
 import Hydro from './Hydro'
 import PotCards from './PotCards'
 import Contact from './Components/Contact'
@@ -22,6 +21,9 @@ const kits = [
 const WelcomeGreenRoom = () =>{
     const [checked, updateCheck] = useState(false)
     const [ageCheck, updateAge] = useState(false)
+    const [smartPhone, checkSmall] = useState(false)
+    const windowSize = window.innerWidth;
+    const smartPhoneWidth = 360;
 
     const handleChange = () =>{ if (checked){
          updateCheck(false)} 
@@ -31,8 +33,17 @@ const WelcomeGreenRoom = () =>{
         } 
         
         }
-        
-        
+    
+    useEffect(()=>{
+        if (smartPhoneWidth <= windowSize){
+            checkSmall(true)
+        } else {
+            checkSmall(false)
+        }
+
+    },[smartPhoneWidth, windowSize])
+
+    
 
     return(<>
             <div className="greenroom">
@@ -48,7 +59,7 @@ const WelcomeGreenRoom = () =>{
                     {/* <Route path="/kits" element={<Kits />} /> */}
                         <Route path="/kits" element={<Kits kits={kits} />}  > 
                           {/* <Route index={true} element={<Kit kit={kits} />} /> */}
-                          <Route path=":kitId" element={<Kit kit={kits} />}/>
+                          <Route path=":kitId" element={<Kit kit={kits} smartPhone={smartPhone} />}/>
                         </Route> 
                     <Route path="/sci" element={<Sci />} />
                     <Route path="/contact" element={<Contact />} />
