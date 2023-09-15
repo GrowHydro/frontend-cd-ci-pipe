@@ -1,17 +1,14 @@
-import {useState} from 'react'
 import styles from '../css/styles.css';
 import { Outlet } from "react-router-dom"
 import BuyButtons from './BuyButtons'
 
-const Buy = () =>{
-      const [checked, updateCheck] = useState(false)
-        
-      const handleChange = () => checked ? updateCheck(!checked) : updateCheck(checked)
-
+const Buy = ({checked, handleChange}) =>{
+      
 
       return(<>
               <div class="body mx-auto">
-                <div class="w-100">
+                <div className={`${checked ? "d-none" : "w-75"}`}>
+
                   <div id="ageForm">
                     <div id="legal" class="d-flex flex-column justify-content-center fw-bolder">
                     <h1>Hydroponic System Disclaimer</h1>
@@ -25,15 +22,17 @@ const Buy = () =>{
                       </ol>
                     <p>This disclaimer is intended to inform you of your legal responsibilities and does not absolve you of any legal obligations. If you are uncertain about the legality of growing specific plants or vegetables using this hydroponic system in your jurisdiction, we strongly recommend seeking legal advice.</p>
                     <p>Please keep in mind that laws and regulations may vary by location, and it is your responsibility to ensure compliance with all relevant laws.</p>
-                  <label id="ageCheckLabel" for="ageCheck" class="text-danger fw-bolder fs-1">
-                  I agree to the above statement and I am 21 years or older
-                    <input type="checkbox" id="ageCheck" onChange={handleChange} value={checked} />
-                  </label>    
+                 <div className="d-flex flex-row mx-auto">
+                  <label id="ageCheckLabel" for="ageCheck" className="w-100 text-danger fw-bolder fs-1 mx-auto">
+                  {"I agree to the above statement and I am 21 years or older  "}
+                    <input className="checkbox" key={`${checked} checkbox`} type="checkbox" id="ageCheck" value={checked} onClick={handleChange} onChange={handleChange} checked={checked} />
+                  </label>
+                 </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className='mx-auto my-4'>
+            <div className={`${checked ? "mx-auto my-4" : "d-none"}`}>
              <div className={styles.container}>
                 <BuyButtons />
               </div>

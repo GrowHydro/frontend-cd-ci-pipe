@@ -1,6 +1,7 @@
-import '../css/button.css'
 import kit from '../pictures/Hydro-kit.jpg'
 import pro from '../pictures/flower.jpg'
+import '../css/button.css'
+
 const BuyButtons = () =>{
 
     return(<>

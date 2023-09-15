@@ -1,11 +1,10 @@
+import { useEffect, useState } from 'react'
 import './scss/greenroom.scss'
 import Navigate from './Navigate.js'
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import Hydro from './Hydro'
-import Users from './Users'
 import PotCards from './PotCards'
-import Home from './Home'
 import Contact from './Components/Contact'
 import Sci from './Components/Sci'
 import Kits from './Components/Kits'
@@ -21,7 +20,19 @@ const kits = [
 
 ]
 const WelcomeGreenRoom = () =>{
+    const [checked, updateCheck] = useState(false)
+    const [ageCheck, updateAge] = useState(false)
 
+    const handleChange = () =>{ if (checked){
+         updateCheck(false)} 
+         else {
+            updateCheck(true)
+            updateAge(true)
+        } 
+        
+        }
+        
+        
 
     return(<>
             <div className="greenroom">
@@ -39,10 +50,9 @@ const WelcomeGreenRoom = () =>{
                           {/* <Route index={true} element={<Kit kit={kits} />} /> */}
                           <Route path=":kitId" element={<Kit kit={kits} />}/>
                         </Route> 
-                    <Route path="users" element={<Users />} />
                     <Route path="/sci" element={<Sci />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/buy" element={<Buy />} />
+                    <Route path="/buy" element={<Buy checked={checked} handleChange={handleChange} />} />
                  </Routes>
                 <Outlet />
             </div>

@@ -1,8 +1,6 @@
-import { Routes, Route, Link, Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './scss/greenroom.scss'
 import './scss/navbar.scss'
-import Compass from './pictures/compass.jpg'
-import Scix from './pictures/scix-small.png'
 import Weed from './pictures/Yellow-Leaf-Small.png'
 
 const Navigate = () =>{

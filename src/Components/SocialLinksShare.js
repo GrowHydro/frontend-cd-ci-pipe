@@ -1,29 +1,12 @@
 import {
-    EmailShareButton,
     FacebookIcon,
     FacebookShareButton,
-    HatenaShareButton,
-    InstapaperShareButton,
-    LineShareButton,
-    LinkedinIcon,
-    LinkedinShareButton,
-    LivejournalShareButton,
-    MailruShareButton,
-    OKShareButton,
     PinterestIcon,
     PinterestShareButton,
-    PocketShareButton,
     RedditIcon,
     RedditShareButton,
-    TelegramIcon,
-    TelegramShareButton,
-    TumblrShareButton,
     TwitterIcon,
-    TwitterShareButton,
-    ViberShareButton,
-    VKShareButton,
-    WhatsappShareButton,
-    WorkplaceShareButton
+    TwitterShareButton
   } from "react-share";
 
 

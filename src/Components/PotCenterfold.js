@@ -24,9 +24,7 @@ const images = [{original: GrowRoom, thumbnail: GrowRoomSmall},
 const PotCenterfold =()=>{
 
     return(<>
-            
                 <ImageGallery autoPlay={true} items={images} />
-            
            </>)
 }
 
