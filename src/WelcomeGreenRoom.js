@@ -23,8 +23,8 @@ const WelcomeGreenRoom = () =>{
     const [ageCheck, updateAge] = useState(false)
     const [smartPhone, checkSmall] = useState(false)
     const windowSize = window.innerWidth;
-    const smartPhoneWidth = 360;
-
+    const smartPhoneWidth = 412;
+    const mediumWidth = 560;
     const handleChange = () =>{ if (checked){
          updateCheck(false)} 
          else {
@@ -35,13 +35,20 @@ const WelcomeGreenRoom = () =>{
         }
     
     useEffect(()=>{
-        if (smartPhoneWidth <= windowSize){
+        if (windowSize >= 1000){
+            checkSmall(false)
+        }
+        else if (smartPhoneWidth => windowSize){
             checkSmall(true)
-        } else {
+        } 
+        else if (mediumWidth => windowSize) {
+            checkSmall(true)
+        } 
+        else if (windowSize > 720){
             checkSmall(false)
         }
 
-    },[smartPhoneWidth, windowSize])
+    },[smartPhoneWidth, windowSize, smartPhoneWidth, mediumWidth])
 
     
 
@@ -54,11 +61,7 @@ const WelcomeGreenRoom = () =>{
                    
                         <Route path="/select" element={<PotCards />}   />
                         <Route path="/hydro" element={<Hydro />} />
-                    {/* </Route> */}
-                    {/* <Route path="/hydro" element={<PotCards />} /> */}
-                    {/* <Route path="/kits" element={<Kits />} /> */}
                         <Route path="/kits" element={<Kits kits={kits} />}  > 
-                          {/* <Route index={true} element={<Kit kit={kits} />} /> */}
                           <Route path=":kitId" element={<Kit kit={kits} smartPhone={smartPhone} />}/>
                         </Route> 
                     <Route path="/sci" element={<Sci />} />

@@ -16,7 +16,7 @@ const BuyButtons = () =>{
               </div>
               <div className="button my-2">
               <div className='d-flex flex-column price'>
-              <h1 className='mx-auto fs-3'>Pro Power Kit</h1>
+              <h1 className='mx-auto fs-3'>HydroBloom Pro</h1>
               <p className='mx-auto'>$660.00</p>
               <img className="rounded-circle" src={pro} alt="high power grow kit" height={"200px"} width={"200px"}/>
               <a target="_blank" href="https://square.link/u/myPEbbJu?src=embed" className="buy">Buy now</a>
