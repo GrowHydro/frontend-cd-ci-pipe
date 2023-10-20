@@ -1,6 +1,7 @@
 import styles from '../css/styles.css';
 import { Outlet } from "react-router-dom"
 import BuyButtons from './BuyButtons'
+import '../scss/buy.scss'
 
 const Buy = ({checked, handleChange}) =>{
       
@@ -12,6 +13,12 @@ const Buy = ({checked, handleChange}) =>{
                   <div id="ageForm">
                     <div id="legal" class="d-flex flex-column justify-content-center fw-bolder">
                     <h1>Terms of Purchase</h1>
+                    <div className="d-flex flex-row mx-auto">
+                  <label id="ageCheckLabel" for="ageCheck" className="w-100 text-danger fw-bolder fs-1 mx-auto">
+                  {"I agree to the below statement and I am 21 years or older  "}
+                    <input className="checkbox" key={`${checked} checkbox`} type="checkbox" id="ageCheck" value={checked} onClick={handleChange} onChange={handleChange} checked={checked} />
+                  </label>
+                 </div>
                     <p>This hydroponic system is designed to grow plants and vegetables in a controlled indoor environment. It provides a method for cultivating various types of vegetation using a water-based nutrient solution.</p>
                     <p>It's important to note that the success of your crops may depend on various factors including proper maintenance, suitable environmental conditions, and appropriate plant selection.</p>
                     <p>By purchasing and using this hydroponic system, you acknowledge and agree:</p>
@@ -22,12 +29,12 @@ const Buy = ({checked, handleChange}) =>{
                       </ol>
                     <p>This disclaimer is intended to inform you of your legal responsibilities and does not absolve you of any legal obligations. If you are uncertain about the legality of growing specific plants or vegetables using this hydroponic system in your jurisdiction, we strongly recommend seeking legal advice.</p>
                     <p>Please keep in mind that laws and regulations may vary by location, and it is your responsibility to ensure compliance with all relevant laws.</p>
-                 <div className="d-flex flex-row mx-auto">
+                 {/* <div className="d-flex flex-row mx-auto">
                   <label id="ageCheckLabel" for="ageCheck" className="w-100 text-danger fw-bolder fs-1 mx-auto">
                   {"I agree to the above statement and I am 21 years or older  "}
                     <input className="checkbox" key={`${checked} checkbox`} type="checkbox" id="ageCheck" value={checked} onClick={handleChange} onChange={handleChange} checked={checked} />
                   </label>
-                 </div>
+                 </div> */}
                   </div>
                 </div>
               </div>

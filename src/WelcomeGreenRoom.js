@@ -11,6 +11,7 @@ import Kit from './Components/KitCard'
 import Buy from './Components/Buy'
 import Mock from './pictures/mock.jpg'
 import DogMock from './pictures/dogmock.jpg'
+import Customers from './Components/Customers'
 
 const kits = [
    
@@ -22,6 +23,7 @@ const WelcomeGreenRoom = () =>{
     const [checked, updateCheck] = useState(false)
     const [ageCheck, updateAge] = useState(false)
     const [smartPhone, checkSmall] = useState(false)
+    const cannabisStatement = "Expert solutions for Superior cannabis hydroponics"
     const windowSize = window.innerWidth;
     const smartPhoneWidth = 412;
     const mediumWidth = 560;
@@ -47,6 +49,9 @@ const WelcomeGreenRoom = () =>{
         else if (windowSize > 720){
             checkSmall(false)
         }
+        else if (windowSize <= 800){
+            checkSmall(true)
+        }
 
     },[smartPhoneWidth, windowSize, smartPhoneWidth, mediumWidth])
 
@@ -54,18 +59,17 @@ const WelcomeGreenRoom = () =>{
 
     return(<>
             <div className="greenroom">
-                <Navigate />
+                <Navigate smartPhone={smartPhone} />
                  <Routes>
-                    <Route index element={<PotCards />} />
-                    <Route path="/" element={<PotCards />} />
-                   
-                        <Route path="/select" element={<PotCards />}   />
+                    <Route index element={<PotCards cannabisStatement={cannabisStatement} smartPhone={smartPhone} />} />
+                    <Route path="/" element={<PotCards cannabisStatement={cannabisStatement} smartPhone={smartPhone} />} />
                         <Route path="/hydro" element={<Hydro />} />
                         <Route path="/kits" element={<Kits kits={kits} />}  > 
                           <Route path=":kitId" element={<Kit kit={kits} smartPhone={smartPhone} />}/>
                         </Route> 
                     <Route path="/sci" element={<Sci />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/customers" element={<Customers />} />
                     <Route path="/buy" element={<Buy checked={checked} handleChange={handleChange} />} />
                  </Routes>
                 <Outlet />
